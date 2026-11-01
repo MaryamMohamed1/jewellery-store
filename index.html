@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura | Luxury Jewelry</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050505',
+                            card: 'rgba(20, 20, 22, 0.6)',
+                            gold: '#d4af37',
+                            goldLight: '#f3e5ab',
+                            muted: '#8a8a93',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-[#050505] via-[#0a0a0c] to-[#12100b] text-white font-sans antialiased min-h-screen flex items-center justify-center p-4 overflow-x-hidden relative selection:bg-brand-gold selection:text-black">
+
+    <div class="fixed top-0 left-1/4 w-[800px] h-[800px] bg-brand-gold/5 rounded-full blur-[150px] pointer-events-none"></div>
+    <div class="fixed bottom-0 right-1/4 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <!-- ================= VIEW: WELCOME ================= -->
+    <div id="view-welcome" class="view-section flex w-full max-w-4xl animate-fade-in-up relative z-10">
+        <div class="flex flex-col md:flex-row w-full bg-brand-card backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <div class="w-full md:w-1/2 bg-white/90 flex items-center justify-center p-8 md:p-12 relative overflow-hidden group">
+                <img src="image/image12fullgold.png" alt="Luxury Gold Collection" class="w-3/4 object-contain mix-blend-multiply transition-transform duration-1000 group-hover:scale-110">
+            </div>
+            <div class="w-full md:w-1/2 p-10 md:p-14 flex flex-col justify-center relative">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gold/10 blur-[50px]"></div>
+                <h1 class="font-serif text-4xl md:text-5xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-brand-goldLight to-brand-gold">Aura Collection</h1>
+                <p class="text-brand-muted text-sm leading-relaxed mb-10 font-light">
+                    Discover the epitome of elegance. Sign up to explore our exclusive, handcrafted jewelry collections designed for the extraordinary.
+                </p>
+                <button onclick="navigate('view-register')" class="w-full py-3.5 border border-brand-gold/50 text-brand-goldLight rounded-lg hover:bg-brand-gold hover:text-black hover:border-brand-gold hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 tracking-widest text-xs font-semibold uppercase">
+                    Begin Journey
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= VIEW: REGISTER ================= -->
+    <div id="view-register" class="view-section hidden w-full max-w-4xl animate-fade-in-up relative z-10">
+        <div class="flex flex-col md:flex-row w-full bg-brand-card backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <div class="hidden md:flex w-1/2 bg-white/90 items-center justify-center p-12 relative overflow-hidden group">
+                <img src="image/image11fullsilver.png" alt="Luxury Silver Collection" class="w-3/4 object-contain mix-blend-multiply transition-transform duration-1000 group-hover:scale-110">
+            </div>
+            
+            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                <h2 class="font-serif text-3xl mb-2 text-brand-goldLight">Create Account</h2>
+                <p class="text-brand-muted text-xs mb-8 tracking-wide">Join our elite members club.</p>
+                
+                <form id="authForm" class="space-y-5" novalidate>
+                    <div class="relative">
+                        <input type="text" id="username" class="w-full bg-transparent border-b border-white/20 px-0 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold transition-colors peer placeholder-transparent" placeholder="Username">
+                        <label for="username" class="absolute left-0 -top-3.5 text-xs text-brand-muted transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2.5 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-brand-gold cursor-text">Username (5-15 chars)</label>
+                        <p id="err-username" class="hidden text-red-400 text-[11px] mt-1 tracking-wide">Must be between 5 and 15 characters.</p>
+                    </div>
+
+                    <div class="relative mt-6">
+                        <input type="email" id="email" class="w-full bg-transparent border-b border-white/20 px-0 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold transition-colors peer placeholder-transparent" placeholder="Email">
+                        <label for="email" class="absolute left-0 -top-3.5 text-xs text-brand-muted transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2.5 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-brand-gold cursor-text">Email Address</label>
+                        <p id="err-email" class="hidden text-red-400 text-[11px] mt-1 tracking-wide">Enter a valid email containing '@'.</p>
+                    </div>
+
+                    <div class="relative mt-6">
+                        <input type="password" id="password" class="w-full bg-transparent border-b border-white/20 px-0 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold transition-colors peer placeholder-transparent" placeholder="Password">
+                        <label for="password" class="absolute left-0 -top-3.5 text-xs text-brand-muted transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2.5 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-brand-gold cursor-text">Password</label>
+                        <p id="err-password" class="hidden text-red-400 text-[11px] mt-1 tracking-wide">Min 8 chars, including letters & numbers.</p>
+                    </div>
+
+                    <div class="relative mt-6">
+                        <input type="password" id="confirmPwd" class="w-full bg-transparent border-b border-white/20 px-0 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold transition-colors peer placeholder-transparent" placeholder="Confirm">
+                        <label for="confirmPwd" class="absolute left-0 -top-3.5 text-xs text-brand-muted transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-2.5 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-brand-gold cursor-text">Confirm Password</label>
+                        <p id="err-confirmPwd" class="hidden text-red-400 text-[11px] mt-1 tracking-wide">Passwords do not match.</p>
+                    </div>
+
+                    <div class="pt-6 flex flex-col gap-3">
+                        <button type="submit" class="w-full bg-gradient-to-r from-brand-gold to-[#b8952d] text-black py-3 rounded-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 font-medium tracking-wide text-sm">
+                            Create Account
+                        </button>
+                        <button type="button" onclick="navigate('view-welcome')" class="text-brand-muted text-xs hover:text-white transition-colors mt-2">
+                            ← Back to Welcome
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= VIEW: STORE / SUCCESS ================= -->
+    <div id="view-store" class="view-section hidden flex-col w-full max-w-6xl animate-fade-in-up relative z-10 my-10">
+        
+        <header class="text-center mb-16">
+            <h2 class="font-serif text-3xl md:text-5xl text-white mb-3">Welcome Back, <span id="user-display" class="text-brand-goldLight capitalize"></span></h2>
+            <p class="text-brand-muted text-xs tracking-[0.2em] uppercase mb-8">Exclusive Member Access</p>
+            <div class="h-[1px] w-32 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto"></div>
+        </header>
+
+        <!-- Product Grid (9 items) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Item 1 -->
+            <div class="group relative bg-brand-card backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-brand-gold/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div class="bg-white/95 rounded-xl p-6 mb-6 aspect-square flex items-center justify-center overflow-hidden">
+                    <img src="image/image1.png" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt="Jewelry">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-serif text-lg mb-1 text-white group-hover:text-brand-goldLight transition-colors">Imperial Necklace</h3>
+                    <p class="text-brand-muted text-xs mb-3">Signature Collection</p>
+                    <p class="text-brand-gold font-medium">1,850 EGP</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="group relative bg-brand-card backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-brand-gold/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden">
+                <div class="bg-white/95 rounded-xl p-6 mb-6 aspect-square flex items-center justify-center overflow-hidden">
+                    <img src="image/image2.png" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt="Jewelry">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-serif text-lg mb-1 text-white group-hover:text-brand-goldLight transition-colors">Crystal Blossom</h3>
+                    <p class="text-brand-muted text-xs mb-3">Limited Edition</p>
+                    <p class="text-brand-gold font-medium">2,100 EGP</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="group relative bg-brand-card backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-brand-gold/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden">
+                <div class="bg-white/95 rounded-xl p-6 mb-6 aspect-square flex items-center justify-center overflow-hidden">
+                    <img src="image/image3.png" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt="Jewelry">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-serif text-lg mb-1 text-white group-hover:text-brand-goldLight transition-colors">Pearl Elegance</h3>
+                    <p class="text-brand-muted text-xs mb-3">Bridal Series</p>
+                    <p class="text-brand-gold font-medium">3,500 EGP</p>
+                </div>
+            </div>
+
+            <!-- Item 4 (Gold) -->
+            <div class="group relative bg-brand-card backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-brand-gold/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden">
+                <div class="bg-white/95 rounded-xl p-6 mb-6 aspect-square flex items-center justify-center overflow-hidden">
+                    <img src="image/image4gold.png" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt="Gold Jewelry">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-serif text-lg mb-1 text-white group-hover:text-brand-goldLight transition-colors">Classic Gold Chain</h3>
+                    <p class="text-brand-muted text-xs mb-3">18K Pure Gold</p>
+                    <p class="text-brand-gold font-medium">1,450 EGP</p>
+                </div>
+            </div>
+
+            <!-- Item 5 (Gold) -->
+            <div class="group relative bg-brand-card backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-brand-gold/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden">
+                <div class="bg-white/95 rounded-xl p-6 mb-6 aspect-square flex items-center justify-center overflow-hidden">
+                    <img src="image/image5gold.png" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt="Gold Jewelry">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-serif text-lg mb-1 text-white group-hover:text-brand-goldLight transition-colors">Royal Gold Pendant</h3>
+                    <p class="text-brand-muted text-xs mb-3">Diamond Embedded</p>
+                    <p class="text-brand-gold font-medium">2,200 EGP</p>
+                </div>
+            </div>
+
+            <!-- Item 6 (Gold) -->
+            <div class="group relative bg-brand-card backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-brand-gold/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden">
+                <div class="bg-white/95 rounded-xl p-6 mb-6 aspect-square flex items-center justify-center overflow-hidden">
+                    <img src="image/image6gold.png" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt="Gold Jewelry">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-serif text-lg mb-1 text-white group-hover:text-brand-goldLight transition-colors">Eternity Gold</h3>
+                    <p class="text-brand-muted text-xs mb-3">21K Yellow Gold</p>
+                    <p class="text-brand-gold font-medium">3,400 EGP</p>
+                </div>
+            </div>
+
+            <!-- Item 7 (Silver) -->
+            <div class="group relative bg-brand-card backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-brand-gold/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden">
+                <div class="bg-white/95 rounded-xl p-6 mb-6 aspect-square flex items-center justify-center overflow-hidden">
+                    <img src="image/image7silver.png" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt="Silver Jewelry">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-serif text-lg mb-1 text-white group-hover:text-brand-goldLight transition-colors">Sterling Silver Loop</h3>
+                    <p class="text-brand-muted text-xs mb-3">925 Sterling Silver</p>
+                    <p class="text-brand-gold font-medium">850 EGP</p>
+                </div>
+            </div>
+
+            <!-- Item 8 (Silver) -->
+            <div class="group relative bg-brand-card backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-brand-gold/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden">
+                <div class="bg-white/95 rounded-xl p-6 mb-6 aspect-square flex items-center justify-center overflow-hidden">
+                    <img src="image/image8silver.png" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt="Silver Jewelry">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-serif text-lg mb-1 text-white group-hover:text-brand-goldLight transition-colors">Silver Diamond Drop</h3>
+                    <p class="text-brand-muted text-xs mb-3">Pure Platinum Finish</p>
+                    <p class="text-brand-gold font-medium">1,150 EGP</p>
+                </div>
+            </div>
+
+            <!-- Item 9 (Silver) -->
+            <div class="group relative bg-brand-card backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-brand-gold/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 overflow-hidden">
+                <div class="bg-white/95 rounded-xl p-6 mb-6 aspect-square flex items-center justify-center overflow-hidden">
+                    <img src="image/image10silver.png" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt="Silver Jewelry">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-serif text-lg mb-1 text-white group-hover:text-brand-goldLight transition-colors">Pure Silver Heart</h3>
+                    <p class="text-brand-muted text-xs mb-3">925 Sterling Silver</p>
+                    <p class="text-brand-gold font-medium">950 EGP</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-16 text-center pb-8">
+            <button onclick="logout()" class="px-8 py-3 border border-white/10 text-brand-muted text-sm hover:text-white hover:border-white/30 rounded-full transition-all duration-300">
+                Secure Sign Out
+            </button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
